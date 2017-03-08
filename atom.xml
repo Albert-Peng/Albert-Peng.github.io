@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Albert的烦恼</title>
+  <title>饭饭的网络博客</title>
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="www.yoursite/"/>
   <updated>2017-03-08T08:00:53.562Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>www.yoursite/</id>
   
   <author>
     <name>Albert-Peng</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2017/03/08/hello-world/"/>
-    <id>http://yoursite.com/2017/03/08/hello-world/</id>
+    <link href="www.yoursite/2017/03/08/hello-world/"/>
+    <id>www.yoursite/2017/03/08/hello-world/</id>
     <published>2017-03-08T08:00:53.555Z</published>
     <updated>2017-03-08T08:00:53.562Z</updated>
     
