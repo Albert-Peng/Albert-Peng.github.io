@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>饭饭的网络博客</title>
-  
+  <subtitle>面朝大海，春暖花开</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.yoursite/"/>
