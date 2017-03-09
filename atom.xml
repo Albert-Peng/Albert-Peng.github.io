@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.yoursite/"/>
-  <updated>2017-03-08T08:00:53.562Z</updated>
+  <updated>2017-03-09T11:28:01.140Z</updated>
   <id>www.yoursite/</id>
   
   <author>
@@ -14,6 +14,111 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java基础总结-20160309</title>
+    <link href="www.yoursite/2017/03/09/Java%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93-20160309/"/>
+    <id>www.yoursite/2017/03/09/Java基础总结-20160309/</id>
+    <published>2017-03-09T11:22:20.000Z</published>
+    <updated>2017-03-09T11:28:01.140Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="牛客网Java常考知识点"><a href="#牛客网Java常考知识点" class="headerlink" title="牛客网Java常考知识点"></a>牛客网Java常考知识点</h1><h2 id="2017-3-9"><a href="#2017-3-9" class="headerlink" title="2017-3-9"></a>2017-3-9</h2><h3 id="1-static关键字和private关键字"><a href="#1-static关键字和private关键字" class="headerlink" title="1 static关键字和private关键字"></a>1 static关键字和private关键字</h3><p>  static修饰成员变量和成员方法表示成员变量和方法为类所有，所有此类的实例都可以对其进行访问。Java中的static方法不能子类override（覆盖），因为方法覆盖是基于运行时动态绑定的，而static方法和成员变量都是编译时静态绑定的，<strong>static方法和成员变量在Java虚拟机载入类时对其进行了初始化和加载，在此类的实例被创建之前就已经被载入虚拟机。</strong>因此，static不能被overrid。再进一步，<strong>static方法也不能在非static变量和方法被创建前就对其进行访问</strong>，只能通过实例访问，因为在类的实例被创建前，非static成员变量和方法还未被创建。</p>
+<p> private修饰符只能是类和类的实例可以访问，不能被override。                                      </p>
+<h3 id="2-Java自动拆箱和装箱"><a href="#2-Java自动拆箱和装箱" class="headerlink" title="2 Java自动拆箱和装箱"></a>2 Java自动拆箱和装箱</h3><ul>
+<li>定义</li>
+</ul>
+<p>自动装箱就是Java自动将原始类型值转换成对应的对象，比如将int的变量转换成Integer对象，这个过程叫做装箱，反之将Integer对象转换成int类型值，这个过程叫做拆箱。因为这里的装箱和拆箱是自动进行的非人为转换，所以就称作为自动装箱和拆箱。原始类byte,short,char,int,long,float,double和boolean对应的封装类为Byte,Short,Character,Integer,Long,Float,Double,Boolean。</p>
+<ul>
+<li><p>自动拆箱和装箱的方法实现</p>
+<p>(1)自动装箱：把基本类型用它们对应的引用类型包装起来，使它们具有对象的特质，可以调用toString()、hashCode()、getClass()、equals()等方法。</p>
+<pre><code>如下：
+
+Integer a=3;//这是自动装箱
+
+其实编译器调用的是static Integer valueOf(int i)这个方法,valueOf(int i)返回一个表示指定int值的Integer对象,那么就变成这样: 
+
+Integer a=3;   =&gt;    Integer a=Integer.valueOf(3);
+
+(2)拆箱：跟自动装箱的方向相反，将Integer及Double这样的引用类型的对象重新简化为基本类型的数据。
+
+ 如下：
+
+ int i = new Integer(2);//这是拆箱
+
+ 编译器内部会调用int intValue()返回该Integer对象的int值
+</code></pre></li>
+</ul>
+<ul>
+<li>自动拆箱和装箱出现的情况</li>
+</ul>
+<p>（1）赋值情况，初始化数据类型被赋值给对象类型以及相反的情况就会发生自动装箱和拆箱；<br>（2）方法调用，方法参数是对象类型但传入的是初始数据类型也会发生自动拆箱和装箱；<br>（3）尽量在程序中避免频繁的拆箱和装箱</p>
+<h3 id="3-“-”和equals-方法"><a href="#3-“-”和equals-方法" class="headerlink" title="3 “==”和equals() 方法"></a>3 “==”和equals() 方法</h3><p>“==”对于基本数据类型而言，是比较两个变量的值是否一样；对于对象而言，是比较对象在堆中的内存是否一致。<br>“equals（）”是objet类中的一个方法，初始行为是比较两个对象的内存地址是否一致，但是String，Integer等类都对equals方法进行了overr重写，变成比较值的大小。</p>
+<pre><code>public class AutoboxingTest {
+
+public static void main(String args[]) {
+
+    // Example 1: == comparison pure primitive – no autoboxing
+    int i1 = 1;
+    int i2 = 1;
+    System.out.println(&quot;i1==i2 : &quot; + (i1 == i2)); // true
+
+    // Example 2: equality operator mixing object and primitive
+    Integer num1 = 1; // autoboxing
+    int num2 = 1;
+    System.out.println(&quot;num1 == num2 : &quot; + (num1 == num2)); // true
+
+    // Example 3: special case - arises due to autoboxing in Java
+    Integer obj1 = 1; // autoboxing will call Integer.valueOf()
+    Integer obj2 = 1; // same call to Integer.valueOf() will return same
+                        // cached Object
+
+    System.out.println(&quot;obj1 == obj2 : &quot; + (obj1 == obj2)); // true
+
+    // Example 4: equality operator - pure object comparison
+    Integer one = new Integer(1); // no autoboxing
+    Integer anotherOne = new Integer(1);
+    System.out.println(&quot;one == anotherOne : &quot; + (one == anotherOne)); // false
+
+}
+
+}
+
+Output:
+i1==i2 : true
+num1 == num2 : true
+obj1 == obj2 : true
+one == anotherOne : false
+</code></pre><p>值得注意的是第三个小例子，这是一种极端情况。obj1和obj2的初始化都发生了自动装箱操作。但是处于节省内存的考虑，JVM会缓存-128到127的Integer对象。因为obj1和obj2实际上是同一个对象。所以使用”==“比较返回true。类似的例子还有<strong>字符串常量池</strong>。</p>
+<h3 id="4-字符串常量池"><a href="#4-字符串常量池" class="headerlink" title="4 字符串常量池"></a>4 字符串常量池</h3><p>Java中字符串对象创建有两种形式。</p>
+<pre><code>String str = &quot;droid&quot;;//字面量式创建方法
+String str = new String(&quot;droid&quot;);//new创建方法
+</code></pre><p>JVM为了减少字符串对象的重复创建，其维护了一个特殊的内存，这段内存被成为字符串常量池或者字符串字面量池。当代码中出现字面量形式创建字符串对象时，JVM首先会对这个字面量进行检查，如果字符串常量池中存在相同内容的字符串对象的引用，则将这个引用返回，否则新的字符串对象被创建，然后将这个引用放入字符串常量池，并返回该引用。</p>
+<p>当我们使用了new来构造字符串对象的时候，不管字符串常量池中有没有相同内容的对象的引用，新的字符串对象都会创建。对于上面使用new创建的字符串对象，如果想将这个对象的引用加入到字符串常量池，可以使用intern方法。调用intern后，首先检查字符串常量池中是否有该对象的引用，如果存在，则将这个引用返回给变量，否则将引用加入并返回给变量。</p>
+<pre><code>String str4 = str3.intern();
+System.out.println(str4 == str1);
+</code></pre><p>输出的结果为true。</p>
+<p><strong>字符串常量池中存放的时引用还是对象，这个问题是最常见的。字符串常量池存放的是对象引用，不是对象。在Java中，对象都创建在堆内存中。</strong>字符串常量池的好处就是减少相同内容字符串的创建，节省内存空间。如果硬要说弊端的话，就是牺牲了CPU计算时间来换空间。CPU计算时间主要用于在字符串常量池中查找是否有内容相同对象的引用。不过其内部实现为HashTable，所以计算成本较低。</p>
+<h3 id="5-Override（覆盖、重写）和overload（重载）"><a href="#5-Override（覆盖、重写）和overload（重载）" class="headerlink" title="5 Override（覆盖、重写）和overload（重载）"></a>5 Override（覆盖、重写）和overload（重载）</h3><p><strong>Override是子类继承父类的方法，返回值类型、方法名和参数列表必须一致，访问权限修饰符可以不一致，但是只能将访问范围扩大，不能缩小。</strong></p>
+<hr>
+<p><strong>构建方法的override</strong></p>
+<ol>
+<li>子类不能继承父类的构造方法，只是会调用父类的构造方法，分为显式和隐式调用；</li>
+<li>父类中无构造方法或者只有一个无参数构造方法，那么子类会自动隐式调用父类的构造方法；</li>
+<li>父类只有有参数构造函数，子类需要显示调用父类的构造方法，否则编译出错；</li>
+<li>父类既有无参数构造方法也有带参数构造方法，子类可以显示调用，也可以不显式调用，此时默认调用父类无参数构造方法。</li>
+</ol>
+<hr>
+<p><strong>Overload方法名必须一致，参数必须不一样，但返回值类型和修饰符可以不一样。</strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;牛客网Java常考知识点&quot;&gt;&lt;a href=&quot;#牛客网Java常考知识点&quot; class=&quot;headerlink&quot; title=&quot;牛客网Java常考知识点&quot;&gt;&lt;/a&gt;牛客网Java常考知识点&lt;/h1&gt;&lt;h2 id=&quot;2017-3-9&quot;&gt;&lt;a href=&quot;#2017-
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
