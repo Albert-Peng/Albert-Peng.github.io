@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.yoursite/"/>
-  <updated>2017-03-09T11:28:01.140Z</updated>
+  <updated>2017-03-11T07:06:40.737Z</updated>
   <id>www.yoursite/</id>
   
   <author>
@@ -14,6 +14,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java虚拟机-运行时数据区域</title>
+    <link href="www.yoursite/2017/03/11/Java%E8%99%9A%E6%8B%9F%E6%9C%BA-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F/"/>
+    <id>www.yoursite/2017/03/11/Java虚拟机-运行时数据区域/</id>
+    <published>2017-03-11T07:05:35.000Z</published>
+    <updated>2017-03-11T07:06:40.737Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1-Java虚拟机运行时数据区域"><a href="#1-Java虚拟机运行时数据区域" class="headerlink" title="1 Java虚拟机运行时数据区域"></a>1 Java虚拟机运行时数据区域</h3><h3 id="1-1-运行时数据区域的总体框架"><a href="#1-1-运行时数据区域的总体框架" class="headerlink" title="1.1 运行时数据区域的总体框架"></a>1.1 运行时数据区域的总体框架</h3><p>Java的运行时数据区域主要由Java堆、方法区和Java虚拟机栈本地方法栈和程序计数器组成。如图所示是Java虚拟机JVM的运行时数据区域框架图。<br><img src="http://www.th7.cn/d/file/p/2014/12/10/2497c4fc56918191c281f9fb366b1839.png" alt=""><br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1489755911&amp;di=e7880464c40b2aba77b686714ba082f2&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fstatic.cfanz.cn%2Fuploads%2Fpng%2F2015%2F11%2F28%2F21%2FLXD926N081.png" alt=""></p>
+<h3 id="1-2-程序计数器"><a href="#1-2-程序计数器" class="headerlink" title="1.2 程序计数器"></a>1.2 程序计数器</h3><p>程序计数器可以看成当前线程的字节码行号指示器，程序计数器指示字节码解释器的下一条需要执行的字节码指令。如果线程正在执行一个Java方法，则程序计数器将指向正在执行的虚拟机字节码指令地址；如果正在执行的是native方法，则这个程序计数器将为空。程序计数器不存在OutOfMemoryError。</p>
+<h3 id="1-3-Java虚拟机栈"><a href="#1-3-Java虚拟机栈" class="headerlink" title="1.3 Java虚拟机栈"></a>1.3 Java虚拟机栈</h3><p>Java（Java Virtual Machine Stacks）虚拟机栈时线程独享的，其生命周期与线程的生命周期相同。虚拟机栈描述的是Java方法执行的内存模型：每一个方法在执行的同时会创建一个栈帧（Stack Frame）由于存储局部变量表、操作数栈、动态链接和方法出口等。每一个方法从执行到调用对应着一个栈帧的入栈和出栈的过程。Stack Frame是Java虚拟机栈的基本单位。局部变量表存放了编译期可知的基本数据类型和对象引用类型。在此区域存在两种异常状况：StackOverflowError和OutOfMemoryError两种错误。</p>
+<h3 id="1-4-本地方法栈（Native-Method-Stack）"><a href="#1-4-本地方法栈（Native-Method-Stack）" class="headerlink" title="1.4 本地方法栈（Native Method Stack）"></a>1.4 本地方法栈（Native Method Stack）</h3><p>本地方法栈和虚拟机栈的作用非常类似，区别在于虚拟机栈是虚拟机执行Java方法服务，而本地方法栈则为虚拟机使用到的Native方法服务。</p>
+<h3 id="1-5-Java堆（Java-Heap）"><a href="#1-5-Java堆（Java-Heap）" class="headerlink" title="1.5 Java堆（Java Heap）"></a>1.5 Java堆（Java Heap）</h3><p>Java堆（Java 堆）是Java虚拟机所管理的内存最大的一块，Java堆是线程共享的内存区域，在虚拟机启动时创建，唯一的目的是存放对象的实例。Java堆是Java垃圾收集器管理的主要区域，由于现在的垃圾收集器基本采用分代收集算法，因此Java堆可以分为新生代和老年代。Java堆中也可以划分出多个线程私有的分配缓冲区（Thread Local Allocation Buffer）。Java堆可以处于物理上不连续的内存空间上，只要逻辑内存连续即可。</p>
+<h3 id="1-6-Java方法区（Method-Area）"><a href="#1-6-Java方法区（Method-Area）" class="headerlink" title="1.6 Java方法区（Method Area）"></a>1.6 Java方法区（Method Area）</h3><p>方法区也是线程共享的，用于存储已经被虚拟机加载的类信息、常量、静态变量和即时编译后的代码等数据。Java方法区不需要连续的内存、可以扩展，还可以选择不实现垃圾收集。方法区不能满足内存分配需求时会出现OutOfMemoryError。</p>
+<p>运行时常量池（Runtime Constant Pool）是方法区的一部分，用于存储编译期生成的各种字面量和符号引用，比如字符串常量。</p>
+<h3 id="1-7-直接内存"><a href="#1-7-直接内存" class="headerlink" title="1.7 直接内存"></a>1.7 直接内存</h3><p>直接内存（Direct Memory）并不是虚拟机运行时数据区的一部分，也可能导致OutOfMemory。</p>
+<hr>
+<h2 id="2-Hotspot虚拟机对象初探"><a href="#2-Hotspot虚拟机对象初探" class="headerlink" title="2 Hotspot虚拟机对象初探"></a>2 Hotspot虚拟机对象初探</h2><h3 id="2-1-对象的创建"><a href="#2-1-对象的创建" class="headerlink" title="2.1 对象的创建"></a>2.1 对象的创建</h3><p>Java进行对象的过程大致分为以下几个步骤：</p>
+<ol>
+<li><p>虚拟机遇到一条new指令首先会检查要new的对象类是否已经加载在虚拟中，检查的方法是在常量池中检查是否有没有目标类名的符号引用，如果没有则进行类的加载、解析和初始化。</p>
+</li>
+<li><p>类加载检查通过后，将为新生对象在Java堆中分配内存（指针碰撞和空闲列表），需要考虑到线程同步问题，解决的方法是线程同步分配内存，另外可以给每一个线程单独分配一块线程独立的内存区域（本地线程分配缓冲，TLAB）。</p>
+</li>
+<li><p>内存分配完成后，虚拟机将对分配的内存空间初始化为零并进行相关设置。</p>
+</li>
+<li>执行Java方法的init方法，对象创建完成。<h3 id="2-2-对象内存分布"><a href="#2-2-对象内存分布" class="headerlink" title="2.2 对象内存分布"></a>2.2 对象内存分布</h3>对象的内存分布，是指一个对象在内存中的存储布局，主要分为三个部分：对象头（Header）、实例数据（Instance Data）和对齐填充（Padding）。<br>对象头主要包括两个部分，第一部分用于存储对象自身运行时数据，如哈希码（Hash Code）、GC分带年龄、指向锁记录的指针等信息；第二部分是类型指针，即对象指向自身的类元数据的指针，虚拟机通过这个指针来确定这个对象是哪个类的实例。</li>
+</ol>
+<p>实例数据是对象真正存储的有效信息，也是在程序代码中所定义的各种类型的字段内容。</p>
+<p>对齐填充，起到占位的作用，使得占用的内存大小为8的整数倍。</p>
+<h3 id="2-3-对象的访问定位"><a href="#2-3-对象的访问定位" class="headerlink" title="2.3 对象的访问定位"></a>2.3 对象的访问定位</h3><p>对象的定位是指Java虚拟机栈的reference引用定位到Java堆中的对象，有两种方式：句柄访问和直接访问。<br><img src="http://upload-images.jianshu.io/upload_images/3084829-bee8b81a908aa50b.png?imageMogr2/auto-orient/strip%7CimageView2/2" alt=""><br><img src="http://upload-images.jianshu.io/upload_images/3084829-e11f66f8b298cf45.png?imageMogr2/auto-orient/strip%7CimageView2/2" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1-Java虚拟机运行时数据区域&quot;&gt;&lt;a href=&quot;#1-Java虚拟机运行时数据区域&quot; class=&quot;headerlink&quot; title=&quot;1 Java虚拟机运行时数据区域&quot;&gt;&lt;/a&gt;1 Java虚拟机运行时数据区域&lt;/h3&gt;&lt;h3 id=&quot;1-1-运行时数据
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Java基础总结-20160309</title>
