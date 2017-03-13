@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.yoursite/"/>
-  <updated>2017-03-13T08:52:59.815Z</updated>
+  <updated>2017-03-13T09:04:10.267Z</updated>
   <id>www.yoursite/</id>
   
   <author>
@@ -20,18 +20,18 @@
     <link href="www.yoursite/2017/03/13/Java%E8%99%9A%E6%8B%9F%E6%9C%BA-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F/"/>
     <id>www.yoursite/2017/03/13/Java虚拟机-运行时数据区域/</id>
     <published>2017-03-13T08:51:52.000Z</published>
-    <updated>2017-03-13T08:52:59.815Z</updated>
+    <updated>2017-03-13T09:04:10.267Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="1-Java虚拟机运行时数据区域"><a href="#1-Java虚拟机运行时数据区域" class="headerlink" title="1 Java虚拟机运行时数据区域"></a>1 Java虚拟机运行时数据区域</h3><h3 id="1-1-运行时数据区域的总体框架"><a href="#1-1-运行时数据区域的总体框架" class="headerlink" title="1.1 运行时数据区域的总体框架"></a>1.1 运行时数据区域的总体框架</h3><p>Java的运行时数据区域主要由Java堆、方法区和Java虚拟机栈本地方法栈和程序计数器组成。如图所示是Java虚拟机JVM的运行时数据区域框架图。<br><img src="http://www.th7.cn/d/file/p/2014/12/10/2497c4fc56918191c281f9fb366b1839.png" alt=""><br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1489755911&amp;di=e7880464c40b2aba77b686714ba082f2&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fstatic.cfanz.cn%2Fuploads%2Fpng%2F2015%2F11%2F28%2F21%2FLXD926N081.png" alt=""></p>
-<h3 id="1-2-程序计数器"><a href="#1-2-程序计数器" class="headerlink" title="1.2 程序计数器"></a>1.2 程序计数器</h3><p>程序计数器可以看成当前线程的字节码行号指示器，程序计数器指示字节码解释器的下一条需要执行的字节码指令。如果线程正在执行一个Java方法，则程序计数器将指向正在执行的虚拟机字节码指令地址；如果正在执行的是native方法，则这个程序计数器将为空。程序计数器不存在OutOfMemoryError。</p>
-<h3 id="1-3-Java虚拟机栈"><a href="#1-3-Java虚拟机栈" class="headerlink" title="1.3 Java虚拟机栈"></a>1.3 Java虚拟机栈</h3><p>Java（Java Virtual Machine Stacks）虚拟机栈时线程独享的，其生命周期与线程的生命周期相同。虚拟机栈描述的是Java方法执行的内存模型：每一个方法在执行的同时会创建一个栈帧（Stack Frame）由于存储局部变量表、操作数栈、动态链接和方法出口等。每一个方法从执行到调用对应着一个栈帧的入栈和出栈的过程。Stack Frame是Java虚拟机栈的基本单位。局部变量表存放了编译期可知的基本数据类型和对象引用类型。在此区域存在两种异常状况：StackOverflowError和OutOfMemoryError两种错误。</p>
+    <content type="html"><![CDATA[<h1 id="Java虚拟机运行时数据区域"><a href="#Java虚拟机运行时数据区域" class="headerlink" title="Java虚拟机运行时数据区域"></a>Java虚拟机运行时数据区域</h1><h2 id="运行时数据区域的总体框架"><a href="#运行时数据区域的总体框架" class="headerlink" title="运行时数据区域的总体框架"></a>运行时数据区域的总体框架</h2><p>Java的运行时数据区域主要由Java堆、方法区和Java虚拟机栈本地方法栈和程序计数器组成。如图所示是Java虚拟机JVM的运行时数据区域框架图。<br><img src="http://www.th7.cn/d/file/p/2014/12/10/2497c4fc56918191c281f9fb366b1839.png" alt=""><br><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1489755911&amp;di=e7880464c40b2aba77b686714ba082f2&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fstatic.cfanz.cn%2Fuploads%2Fpng%2F2015%2F11%2F28%2F21%2FLXD926N081.png" alt=""></p>
+<h2 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h2><p>程序计数器可以看成当前线程的字节码行号指示器，程序计数器指示字节码解释器的下一条需要执行的字节码指令。如果线程正在执行一个Java方法，则程序计数器将指向正在执行的虚拟机字节码指令地址；如果正在执行的是native方法，则这个程序计数器将为空。程序计数器不存在OutOfMemoryError。</p>
+<h2 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h2><p>Java（Java Virtual Machine Stacks）虚拟机栈时线程独享的，其生命周期与线程的生命周期相同。虚拟机栈描述的是Java方法执行的内存模型：每一个方法在执行的同时会创建一个栈帧（Stack Frame）由于存储局部变量表、操作数栈、动态链接和方法出口等。每一个方法从执行到调用对应着一个栈帧的入栈和出栈的过程。Stack Frame是Java虚拟机栈的基本单位。局部变量表存放了编译期可知的基本数据类型和对象引用类型。在此区域存在两种异常状况：StackOverflowError和OutOfMemoryError两种错误。</p>
 <h3 id="1-4-本地方法栈（Native-Method-Stack）"><a href="#1-4-本地方法栈（Native-Method-Stack）" class="headerlink" title="1.4 本地方法栈（Native Method Stack）"></a>1.4 本地方法栈（Native Method Stack）</h3><p>本地方法栈和虚拟机栈的作用非常类似，区别在于虚拟机栈是虚拟机执行Java方法服务，而本地方法栈则为虚拟机使用到的Native方法服务。</p>
-<h3 id="1-5-Java堆（Java-Heap）"><a href="#1-5-Java堆（Java-Heap）" class="headerlink" title="1.5 Java堆（Java Heap）"></a>1.5 Java堆（Java Heap）</h3><p>Java堆（Java 堆）是Java虚拟机所管理的内存最大的一块，Java堆是线程共享的内存区域，在虚拟机启动时创建，唯一的目的是存放对象的实例。Java堆是Java垃圾收集器管理的主要区域，由于现在的垃圾收集器基本采用分代收集算法，因此Java堆可以分为新生代和老年代。Java堆中也可以划分出多个线程私有的分配缓冲区（Thread Local Allocation Buffer）。Java堆可以处于物理上不连续的内存空间上，只要逻辑内存连续即可。</p>
-<h3 id="1-6-Java方法区（Method-Area）"><a href="#1-6-Java方法区（Method-Area）" class="headerlink" title="1.6 Java方法区（Method Area）"></a>1.6 Java方法区（Method Area）</h3><p>方法区也是线程共享的，用于存储已经被虚拟机加载的类信息、常量、静态变量和即时编译后的代码等数据。Java方法区不需要连续的内存、可以扩展，还可以选择不实现垃圾收集。方法区不能满足内存分配需求时会出现OutOfMemoryError。</p>
+<h2 id="Java堆（Java-Heap）"><a href="#Java堆（Java-Heap）" class="headerlink" title="Java堆（Java Heap）"></a>Java堆（Java Heap）</h2><p>Java堆（Java 堆）是Java虚拟机所管理的内存最大的一块，Java堆是线程共享的内存区域，在虚拟机启动时创建，唯一的目的是存放对象的实例。Java堆是Java垃圾收集器管理的主要区域，由于现在的垃圾收集器基本采用分代收集算法，因此Java堆可以分为新生代和老年代。Java堆中也可以划分出多个线程私有的分配缓冲区（Thread Local Allocation Buffer）。Java堆可以处于物理上不连续的内存空间上，只要逻辑内存连续即可。</p>
+<h2 id="Java方法区（Method-Area）"><a href="#Java方法区（Method-Area）" class="headerlink" title="Java方法区（Method Area）"></a>Java方法区（Method Area）</h2><p>方法区也是线程共享的，用于存储已经被虚拟机加载的类信息、常量、静态变量和即时编译后的代码等数据。Java方法区不需要连续的内存、可以扩展，还可以选择不实现垃圾收集。方法区不能满足内存分配需求时会出现OutOfMemoryError。</p>
 <p>运行时常量池（Runtime Constant Pool）是方法区的一部分，用于存储编译期生成的各种字面量和符号引用，比如字符串常量。</p>
 <h3 id="1-7-直接内存"><a href="#1-7-直接内存" class="headerlink" title="1.7 直接内存"></a>1.7 直接内存</h3><p>直接内存（Direct Memory）并不是虚拟机运行时数据区的一部分，也可能导致OutOfMemory。</p>
 <hr>
-<h2 id="2-Hotspot虚拟机对象初探"><a href="#2-Hotspot虚拟机对象初探" class="headerlink" title="2 Hotspot虚拟机对象初探"></a>2 Hotspot虚拟机对象初探</h2><h3 id="2-1-对象的创建"><a href="#2-1-对象的创建" class="headerlink" title="2.1 对象的创建"></a>2.1 对象的创建</h3><p>Java进行对象的过程大致分为以下几个步骤：</p>
+<h1 id="Hotspot虚拟机对象初探"><a href="#Hotspot虚拟机对象初探" class="headerlink" title="Hotspot虚拟机对象初探"></a>Hotspot虚拟机对象初探</h1><h2 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h2><p>Java进行对象的过程大致分为以下几个步骤：</p>
 <ol>
 <li><p>虚拟机遇到一条new指令首先会检查要new的对象类是否已经加载在虚拟中，检查的方法是在常量池中检查是否有没有目标类名的符号引用，如果没有则进行类的加载、解析和初始化。</p>
 </li>
@@ -39,7 +39,7 @@
 </li>
 <li><p>内存分配完成后，虚拟机将对分配的内存空间初始化为零并进行相关设置。</p>
 </li>
-<li>执行Java方法的init方法，对象创建完成。<h3 id="2-2-对象内存分布"><a href="#2-2-对象内存分布" class="headerlink" title="2.2 对象内存分布"></a>2.2 对象内存分布</h3>对象的内存分布，是指一个对象在内存中的存储布局，主要分为三个部分：对象头（Header）、实例数据（Instance Data）和对齐填充（Padding）。<br>对象头主要包括两个部分，第一部分用于存储对象自身运行时数据，如哈希码（Hash Code）、GC分带年龄、指向锁记录的指针等信息；第二部分是类型指针，即对象指向自身的类元数据的指针，虚拟机通过这个指针来确定这个对象是哪个类的实例。</li>
+<li>执行Java方法的init方法，对象创建完成。<h2 id="对象内存分布"><a href="#对象内存分布" class="headerlink" title="对象内存分布"></a>对象内存分布</h2>对象的内存分布，是指一个对象在内存中的存储布局，主要分为三个部分：对象头（Header）、实例数据（Instance Data）和对齐填充（Padding）。<br>对象头主要包括两个部分，第一部分用于存储对象自身运行时数据，如哈希码（Hash Code）、GC分带年龄、指向锁记录的指针等信息；第二部分是类型指针，即对象指向自身的类元数据的指针，虚拟机通过这个指针来确定这个对象是哪个类的实例。</li>
 </ol>
 <p>实例数据是对象真正存储的有效信息，也是在程序代码中所定义的各种类型的字段内容。</p>
 <p>对齐填充，起到占位的作用，使得占用的内存大小为8的整数倍。</p>
@@ -48,7 +48,7 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;1-Java虚拟机运行时数据区域&quot;&gt;&lt;a href=&quot;#1-Java虚拟机运行时数据区域&quot; class=&quot;headerlink&quot; title=&quot;1 Java虚拟机运行时数据区域&quot;&gt;&lt;/a&gt;1 Java虚拟机运行时数据区域&lt;/h3&gt;&lt;h3 id=&quot;1-1-运行时数据
+      &lt;h1 id=&quot;Java虚拟机运行时数据区域&quot;&gt;&lt;a href=&quot;#Java虚拟机运行时数据区域&quot; class=&quot;headerlink&quot; title=&quot;Java虚拟机运行时数据区域&quot;&gt;&lt;/a&gt;Java虚拟机运行时数据区域&lt;/h1&gt;&lt;h2 id=&quot;运行时数据区域的总体框架&quot;&gt;&lt;a 
     
     </summary>
     
@@ -64,11 +64,11 @@
     <link href="www.yoursite/2017/03/13/Java%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93-01/"/>
     <id>www.yoursite/2017/03/13/Java基础总结-01/</id>
     <published>2017-03-13T08:48:45.000Z</published>
-    <updated>2017-03-13T08:50:30.957Z</updated>
+    <updated>2017-03-13T09:04:55.930Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="1-static关键字和private关键字"><a href="#1-static关键字和private关键字" class="headerlink" title="1 static关键字和private关键字"></a>1 static关键字和private关键字</h3><p>  static修饰成员变量和成员方法表示成员变量和方法为类所有，所有此类的实例都可以对其进行访问。Java中的static方法不能子类override（覆盖），因为方法覆盖是基于运行时动态绑定的，而static方法和成员变量都是编译时静态绑定的，<strong>static方法和成员变量在Java虚拟机载入类时对其进行了初始化和加载，在此类的实例被创建之前就已经被载入虚拟机。</strong>因此，static不能被overrid。再进一步，<strong>static方法也不能在非static变量和方法被创建前就对其进行访问</strong>，只能通过实例访问，因为在类的实例被创建前，非static成员变量和方法还未被创建。</p>
+    <content type="html"><![CDATA[<h3 id="static关键字和private关键字"><a href="#static关键字和private关键字" class="headerlink" title="static关键字和private关键字"></a>static关键字和private关键字</h3><p>  static修饰成员变量和成员方法表示成员变量和方法为类所有，所有此类的实例都可以对其进行访问。Java中的static方法不能子类override（覆盖），因为方法覆盖是基于运行时动态绑定的，而static方法和成员变量都是编译时静态绑定的，<strong>static方法和成员变量在Java虚拟机载入类时对其进行了初始化和加载，在此类的实例被创建之前就已经被载入虚拟机。</strong>因此，static不能被overrid。再进一步，<strong>static方法也不能在非static变量和方法被创建前就对其进行访问</strong>，只能通过实例访问，因为在类的实例被创建前，非static成员变量和方法还未被创建。</p>
 <p> private修饰符只能是类和类的实例可以访问，不能被override。                                      </p>
-<h3 id="2-Java自动拆箱和装箱"><a href="#2-Java自动拆箱和装箱" class="headerlink" title="2 Java自动拆箱和装箱"></a>2 Java自动拆箱和装箱</h3><ul>
+<h3 id="Java自动拆箱和装箱"><a href="#Java自动拆箱和装箱" class="headerlink" title="Java自动拆箱和装箱"></a>Java自动拆箱和装箱</h3><ul>
 <li>定义</li>
 </ul>
 <p>自动装箱就是Java自动将原始类型值转换成对应的对象，比如将int的变量转换成Integer对象，这个过程叫做装箱，反之将Integer对象转换成int类型值，这个过程叫做拆箱。因为这里的装箱和拆箱是自动进行的非人为转换，所以就称作为自动装箱和拆箱。原始类byte,short,char,int,long,float,double和boolean对应的封装类为Byte,Short,Character,Integer,Long,Float,Double,Boolean。</p>
@@ -96,7 +96,7 @@ Integer a=3;   =&gt;    Integer a=Integer.valueOf(3);
 <li>自动拆箱和装箱出现的情况</li>
 </ul>
 <p>（1）赋值情况，初始化数据类型被赋值给对象类型以及相反的情况就会发生自动装箱和拆箱；<br>（2）方法调用，方法参数是对象类型但传入的是初始数据类型也会发生自动拆箱和装箱；<br>（3）尽量在程序中避免频繁的拆箱和装箱</p>
-<h3 id="3-“-”和equals-方法"><a href="#3-“-”和equals-方法" class="headerlink" title="3 “==”和equals() 方法"></a>3 “==”和equals() 方法</h3><p>“==”对于基本数据类型而言，是比较两个变量的值是否一样；对于对象而言，是比较对象在堆中的内存是否一致。<br>“equals（）”是objet类中的一个方法，初始行为是比较两个对象的内存地址是否一致，但是String，Integer等类都对equals方法进行了overr重写，变成比较值的大小。</p>
+<h3 id="“-”和equals-方法"><a href="#“-”和equals-方法" class="headerlink" title="“==”和equals() 方法"></a>“==”和equals() 方法</h3><p>“==”对于基本数据类型而言，是比较两个变量的值是否一样；对于对象而言，是比较对象在堆中的内存是否一致。<br>“equals（）”是objet类中的一个方法，初始行为是比较两个对象的内存地址是否一致，但是String，Integer等类都对equals方法进行了overr重写，变成比较值的大小。</p>
 <pre><code>public class AutoboxingTest {
 
 public static void main(String args[]) {
@@ -133,7 +133,7 @@ num1 == num2 : true
 obj1 == obj2 : true
 one == anotherOne : false
 </code></pre><p>值得注意的是第三个小例子，这是一种极端情况。obj1和obj2的初始化都发生了自动装箱操作。但是处于节省内存的考虑，JVM会缓存-128到127的Integer对象。因为obj1和obj2实际上是同一个对象。所以使用”==“比较返回true。类似的例子还有<strong>字符串常量池</strong>。</p>
-<h3 id="4-字符串常量池"><a href="#4-字符串常量池" class="headerlink" title="4 字符串常量池"></a>4 字符串常量池</h3><p>Java中字符串对象创建有两种形式。</p>
+<h3 id="字符串常量池"><a href="#字符串常量池" class="headerlink" title="字符串常量池"></a>字符串常量池</h3><p>Java中字符串对象创建有两种形式。</p>
 <pre><code>String str = &quot;droid&quot;;//字面量式创建方法
 String str = new String(&quot;droid&quot;);//new创建方法
 </code></pre><p>JVM为了减少字符串对象的重复创建，其维护了一个特殊的内存，这段内存被成为字符串常量池或者字符串字面量池。当代码中出现字面量形式创建字符串对象时，JVM首先会对这个字面量进行检查，如果字符串常量池中存在相同内容的字符串对象的引用，则将这个引用返回，否则新的字符串对象被创建，然后将这个引用放入字符串常量池，并返回该引用。</p>
@@ -142,7 +142,7 @@ String str = new String(&quot;droid&quot;);//new创建方法
 System.out.println(str4 == str1);
 </code></pre><p>输出的结果为true。</p>
 <p><strong>字符串常量池中存放的时引用还是对象，这个问题是最常见的。字符串常量池存放的是对象引用，不是对象。在Java中，对象都创建在堆内存中。</strong>字符串常量池的好处就是减少相同内容字符串的创建，节省内存空间。如果硬要说弊端的话，就是牺牲了CPU计算时间来换空间。CPU计算时间主要用于在字符串常量池中查找是否有内容相同对象的引用。不过其内部实现为HashTable，所以计算成本较低。</p>
-<h3 id="5-Override（覆盖、重写）和overload（重载）"><a href="#5-Override（覆盖、重写）和overload（重载）" class="headerlink" title="5 Override（覆盖、重写）和overload（重载）"></a>5 Override（覆盖、重写）和overload（重载）</h3><p><strong>Override是子类继承父类的方法，返回值类型、方法名和参数列表必须一致，访问权限修饰符可以不一致，但是只能将访问范围扩大，不能缩小。</strong></p>
+<h3 id="Override（覆盖、重写）和overload（重载）"><a href="#Override（覆盖、重写）和overload（重载）" class="headerlink" title="Override（覆盖、重写）和overload（重载）"></a>Override（覆盖、重写）和overload（重载）</h3><p><strong>Override是子类继承父类的方法，返回值类型、方法名和参数列表必须一致，访问权限修饰符可以不一致，但是只能将访问范围扩大，不能缩小。</strong></p>
 <p><strong>构建方法的override</strong></p>
 <ol>
 <li>子类不能继承父类的构造方法，只是会调用父类的构造方法，分为显式和隐式调用；</li>
@@ -155,7 +155,7 @@ System.out.println(str4 == str1);
     
     <summary type="html">
     
-      &lt;h3 id=&quot;1-static关键字和private关键字&quot;&gt;&lt;a href=&quot;#1-static关键字和private关键字&quot; class=&quot;headerlink&quot; title=&quot;1 static关键字和private关键字&quot;&gt;&lt;/a&gt;1 static关键字和private关
+      &lt;h3 id=&quot;static关键字和private关键字&quot;&gt;&lt;a href=&quot;#static关键字和private关键字&quot; class=&quot;headerlink&quot; title=&quot;static关键字和private关键字&quot;&gt;&lt;/a&gt;static关键字和private关键字&lt;/h3&gt;&lt;
     
     </summary>
     
