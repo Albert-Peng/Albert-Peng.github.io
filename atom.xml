@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.yoursite/"/>
-  <updated>2017-03-27T03:42:23.761Z</updated>
+  <updated>2017-04-10T08:32:25.522Z</updated>
   <id>www.yoursite/</id>
   
   <author>
@@ -14,6 +14,104 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>华为机试_01</title>
+    <link href="www.yoursite/2017/04/10/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/"/>
+    <id>www.yoursite/2017/04/10/华为机试/</id>
+    <published>2017-04-10T01:08:06.000Z</published>
+    <updated>2017-04-10T08:32:25.522Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="质数因子"><a href="#质数因子" class="headerlink" title="质数因子"></a>质数因子</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个正整数，按照从小到大的顺序输出它的所有质数的因子（如180的质数因子为2 2 3 3 5 ）最后一个数后面也要有空格。</p>
+<p>输入：输入一个long整型数</p>
+<p>输出：按照从小到大的顺序输出它的所有质数因子，以空格隔开。最后一个数也需要加上空格。</p>
+<h2 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h2><p>Java中空格不需要转义，直接用” “表示即可。</p>
+<p>`</p>
+<pre><code>public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+    while(sc.hasNextLong()){
+        Long temp = sc.nextLong();
+        StringBuffer str = new StringBuffer();
+        while(temp != 1){
+            for(long i = 2l;i&lt;=temp;i++){
+                if(temp%i == 0){
+                    str.append(String.valueOf(i)+&quot; &quot;);
+                    temp = temp/i;
+                    break;
+                }
+            }
+        }
+        System.out.println(str);
+}
+}
+</code></pre><p>`</p>
+<h1 id="取近似值"><a href="#取近似值" class="headerlink" title="取近似值"></a>取近似值</h1><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>写出一个程序，接受一个正浮点数值，输出该数值的近似整数值。如果小数点后数值大于等于5,向上取整；小于5，则向下取整。</p>
+<p>输入描述：输入一个正浮点数值</p>
+<p>输出描述：输出该数值的近似整数值</p>
+<p>例如：输入5.5 输出6</p>
+<h2 id="程序-1"><a href="#程序-1" class="headerlink" title="程序"></a>程序</h2><p>解法一：<br>这是我自己的解法</p>
+<pre><code>public static void main(String[] args){
+       Scanner sc = new Scanner(System.in);
+       while(sc.hasNextFloat()){
+           float temp = sc.nextFloat();
+           String str = String.valueOf(temp);
+           Integer result = 0;
+           for(int i = 0;i &lt; str.length();i++){
+               if(str.charAt(i) == &apos;.&apos;){
+                   result = Integer.valueOf(str.substring(0,i));
+                   if(str.charAt(i+1)&gt;=&apos;5&apos;){
+                       result++;
+                   }
+                   break;
+               }
+           }
+           System.out.println(result);
+       }
+   }`
+</code></pre><p>解法二：<br>float强制转换为int类型时，是直接去掉小数部分，不进行四舍五入。</p>
+<pre><code>public static void main(String[] args){
+       Scanner sc = new Scanner(System.in);
+       while(sc.hasNextFloat()){
+           float temp = sc.nextFloat();
+           int a = int(temp+0.5)
+           System.out.println(a);
+       }
+   }`
+</code></pre><h1 id="合并表记录"><a href="#合并表记录" class="headerlink" title="合并表记录"></a>合并表记录</h1><h2 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h2><p>数据表记录包含表索引和数值，请对表索引相同的记录进行合并，即将相同索引的数值进行求和运算，输出按照key值升序进行输出。</p>
+<p>输入例子:<br>4<br>0 1<br>0 2<br>1 2<br>3 4</p>
+<p>输出例子:<br>0 3<br>1 2<br>3 4</p>
+<h2 id="程序-2"><a href="#程序-2" class="headerlink" title="程序"></a>程序</h2><p>`</p>
+<pre><code>    Scanner sc = new Scanner(System.in);
+    while(sc.hasNext()){
+        Map&lt;Integer,Integer&gt; map = new TreeMap&lt;Integer,Integer&gt;();
+        int n = sc.nextInt();
+        for(int i = 0;i&lt;n;i++){
+            int index = sc.nextInt();
+            int values = sc.nextInt();
+            if(map.containsKey(index)){
+                map.put(index,map.get(index)+values);       
+        }else
+                map.put(index,values);
+
+    }
+        for(Integer key:map.keySet()){
+            System.out.println(key+&quot; &quot;+ map.get(key));
+        }
+}
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;质数因子&quot;&gt;&lt;a href=&quot;#质数因子&quot; class=&quot;headerlink&quot; title=&quot;质数因子&quot;&gt;&lt;/a&gt;质数因子&lt;/h1&gt;&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a
+    
+    </summary>
+    
+      <category term="刷题" scheme="www.yoursite/categories/%E5%88%B7%E9%A2%98/"/>
+    
+    
+      <category term="华为" scheme="www.yoursite/tags/%E5%8D%8E%E4%B8%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>周计划-20170327-20170402</title>
