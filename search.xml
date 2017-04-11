@@ -4,6 +4,127 @@
   
     
     <entry>
+      <title><![CDATA[携程实习笔试总结]]></title>
+      <url>www.yoursite/2017/04/11/%E6%90%BA%E7%A8%8B%E5%AE%9E%E4%B9%A0%E7%AC%94%E8%AF%95%E6%80%BB%E7%BB%93/</url>
+      <content type="html"><![CDATA[<h1 id="输入问题"><a href="#输入问题" class="headerlink" title="输入问题"></a>输入问题</h1><p>Oline Judge的一个重要的问题是输入和输出问题，输入问题在本次携程笔试中对我造成了很大的阻碍，特此对OJ系统的输入问题进行总结。</p>
+<h2 id="next-和nextLine-的区别"><a href="#next-和nextLine-的区别" class="headerlink" title="next()和nextLine()的区别"></a>next()和nextLine()的区别</h2><p>java.util.Scanner类中的方法定义</p>
+<pre><code>返回值 方法名 解释
+
+boolean    hasNext()    Returns true if this scanner has another token in its input.
+boolean    hasNextLine()  Returns true if there is another line in the input of this scanner.
+boolean    hasNextInt()    Returns true if the next token in this scanner&apos;s input can be interpreted as an int value in the specified radix using the nextInt() method.
+String    next()        Finds and returns the next complete token from this scanner.
+String    nextLine()    Advances this scanner past the current line and returns the input that was skipped.
+</code></pre><h2 id="输入一行数"><a href="#输入一行数" class="headerlink" title="输入一行数"></a>输入一行数</h2><p>这种情况是未指定数组的输入元素个数，需要整行输入，并在整行的循环中进行处理。在这种情况下需要用正则表达式进行处理。例如输入5,2,1,3,4,5，存储为数组并输出。</p>
+<pre><code>public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        //这里只能使用sc.nextLine()进行整行读入，因为是整行读入并进行处理
+        while(sc.hasNextLine()){ 
+                //trim（）是String的方法，去掉开头和结尾的空格
+                String str = sc.nextLine().trim();
+                String[] strArray = str.split(&quot;,&quot;);
+                for(int i = 0;i&lt;strArray.length;i++){
+                    System.out.println(strArray[i]);
+            }
+
+    }
+
+}
+</code></pre><p>类似的，输入一行数据，以空格隔开</p>
+<pre><code>public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+    while(sc.hasNextLine()){
+        String str1 = sc.nextLine();
+        String[] str2 = str1.split(&quot; &quot;);
+        for(int i = 0;i&lt;str2.length;i++){
+          System.out.print(&quot;-&quot;+str2[i]);
+        }
+    }
+}
+</code></pre>]]></content>
+      
+        <categories>
+            
+            <category> 刷题 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 笔试 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[华为机机试_02]]></title>
+      <url>www.yoursite/2017/04/11/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E6%9C%BA%E8%AF%95%E2%80%94-02/</url>
+      <content type="html"><![CDATA[<h1 id="提取不重复的整数"><a href="#提取不重复的整数" class="headerlink" title="提取不重复的整数"></a>提取不重复的整数</h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>输入一个int型整数，按照从右向左的阅读顺序，返回一个不含重复数字的新的整数。</p>
+<p>输入：9876673</p>
+<p>输出：37689</p>
+<h2 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h2><h3 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h3><p>这是我自己的解法，这个步骤主要分为三个部分：（1）</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 刷题 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 华为 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[排序算法总结]]></title>
+      <url>www.yoursite/2017/04/10/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</url>
+      <content type="html"><![CDATA[<h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><p>时间复杂度O(n^2), 空间复杂度O(1)， 稳定，因为存在两两比较，不存在跳跃。<br>排序时间与输入无关，最好，最差，平均都是O(n^2)。冒泡排序可以选择将最小或者最大的元素冒泡，分别是两个不同的方向。</p>
+<h2 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h2><p>最小冒泡</p>
+<pre><code>int temp;
+for(int i = 0;i &lt; arrayToSort.length;i++){
+    for(int j =arrayToSort.length -1 ;j &gt; i;j--){
+        if(arrayToSort[j] &lt; arrayToSort[j-1]){
+            temp = arrayToSort[j];
+            arrayToSort[j] = arrayToSort[j-1];
+            arrayToSort[j-1] = temp;
+        }
+    }
+}
+</code></pre><p> 最大冒泡</p>
+<pre><code>for(int i = arrayToSort.length-1;i&gt;=0;i--){
+
+    for(int j = 0;j&lt;i;j++){
+            if(arrayToSort[j] &gt; arrayToSort[j+1]){
+            temp = arrayToSort[j];
+            arrayToSort[j] = arrayToSort[j+1];
+            arrayToSort[j+1] = temp;
+        }
+    }
+}
+</code></pre><p>冒泡排序缺陷：</p>
+<p>1.在排序过程中，执行完当前的第i趟排序后，可能数据已全部排序完备，但是程序无法判断是否完成排序，会继续执行剩下的(n-1-i)趟排序。解决方法： 设置一个flag位, 如果一趟无元素交换，则 flag = 0; 以后再也不进入第二层循环。<br>2.当排序的数据比较多时排序的时间会明显延长，因为会比较 n*(n-1)/2次。 </p>
+<h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h1><p>时间复杂度O(n^2), 空间复杂度O(1)。<br>排序时间与输入有关：输入的元素个数；元素已排序的程度。<br>最佳情况，输入数组是已经排好序的数组，运行时间是n的线性函数； 最坏情况，输入数组是逆序，运行时间是n的二次函数。插入排序也是有两种方向的插入：从头开始插入和从最末尾开始插入。<strong>插入排序的过程类似于扑克牌的排序。</strong></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>从头开始摸牌<br>    public void inserSort(int[] array){<br>        int temp;<br>        for(int i = 1; i&lt; array.length;i++){<br>            for(int j= i-1;j &gt;= 0;j–){<br>                if(array[j+1] &lt; array[j]){<br>                    temp = array[j];<br>                    array[j] = array[j+1];<br>                    array[j+1] = temp;<br>            }<br>        }<br>    }</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[华为机试_01]]></title>
       <url>www.yoursite/2017/04/10/%E5%8D%8E%E4%B8%BA%E6%9C%BA%E8%AF%95/</url>
       <content type="html"><![CDATA[<h1 id="质数因子"><a href="#质数因子" class="headerlink" title="质数因子"></a>质数因子</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个正整数，按照从小到大的顺序输出它的所有质数的因子（如180的质数因子为2 2 3 3 5 ）最后一个数后面也要有空格。</p>
